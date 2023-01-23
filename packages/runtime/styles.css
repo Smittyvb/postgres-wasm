@@ -2,14 +2,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #252735;
-}
-
-.container {
-  width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 input[type="button"] {
@@ -29,6 +23,7 @@ input[type="button"] {
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
+  height: 3rem;
 }
 
 #menu input {
@@ -53,14 +48,16 @@ input[type="button"] {
   font-family: sans-serif;
 }
 
+.container {
+  height: calc(100vh - 3rem - 16px - 16px);
+}
+
 .xterminal {
   position: relative;
   padding: 16px;
-  width: calc(80ch + 16px * 2);
-  height: 60%;
   background: black;
-  border-radius: 7px;
   display: flex;
+  height: 100%;
 }
 
 .xterminal:before,
@@ -70,13 +67,10 @@ input[type="button"] {
   left: -1px;
   top: -1px;
   border-radius: 7px;
-  background: linear-gradient(45deg, #fadb28, #55d1cf),
-    linear-gradient(45deg, #55d1cf, #b4bcf6);
   background-size: 400%;
   width: calc(100% + 2px);
   height: calc(100% + 2px);
   z-index: -1;
-  animation: steam 120s linear infinite;
 }
 
 .xterm .xterm-viewport {
@@ -92,18 +86,4 @@ input[type="button"] {
 
 .xterm-viewport::-webkit-scrollbar-thumb {
   background: var(--highlight);
-}
-
-@keyframes steam {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 400% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
 }

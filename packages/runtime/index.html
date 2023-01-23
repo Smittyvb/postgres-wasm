@@ -81,6 +81,10 @@
             emulator.serial0_send(
               `\\! stty rows ${emulator.serial_adapter.term.rows} cols ${emulator.serial_adapter.term.cols} && reset\n`
             );
+            if (params.has("run")) {
+              console.log(3);
+              emulator.serial0_send(params.get("run"));
+            }
             emulator.serial_adapter.term.focus();
           }, 0);
         });
